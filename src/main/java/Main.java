@@ -40,7 +40,8 @@ public class Main {
                                 new Vector3f(-0.5f,-0.5f,0.0f),
                                 new Vector3f(0.5f,-0.5f,0.0f)
                         )
-                )
+                ),
+                new Vector4f(0.0f,0.0f,1.0f,1.0f)
         ));
     }
     public void loop(){
