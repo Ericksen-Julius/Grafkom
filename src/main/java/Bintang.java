@@ -1,17 +1,18 @@
-import Engine.*;
-import org.joml.Vector3f;
+import Engine.Circle;
+import Engine.Object2d;
+import Engine.ShaderProgram;
+import Engine.Window;
 import org.joml.Vector4f;
 import org.lwjgl.opengl.GL;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.glClearColor;
-import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL20.*;
 
-public class Main {
+public class Bintang {
     private Window window =
             new Window
                     (800,800,"Hello World");
@@ -21,7 +22,7 @@ public class Main {
     private ArrayList<Object2d> objectsRectangle
             = new ArrayList<>();
 
-   private Circle objectsCircle;
+    private Circle objectsCircle;
     public void init(){
         window.init();
         GL.createCapabilities();
@@ -71,55 +72,6 @@ public class Main {
 //                ));
 
         //code
-        objects.add(new Object2d(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene2.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene2.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                        List.of(
-                                new Vector3f(0.0f,0.5f,0.0f),
-                                new Vector3f(-0.5f,-0.5f,0.0f),
-                                new Vector3f(0.5f,-0.5f,0.0f)
-                        )
-                ),
-                new ArrayList<>(
-                        List.of(
-                                new Vector3f(1.0f,0.0f,0.0f),
-                                new Vector3f(0.0f,1.0f,0.0f),
-                                new Vector3f(0.0f,0.0f,1.0f)
-                        )
-                )
-        ));
-
-            objectsRectangle.add(new Rectangle(
-                    Arrays.asList(
-                            //shaderFile lokasi menyesuaikan objectnya
-                            new ShaderProgram.ShaderModuleData
-                                    ("resources/shaders/scene.vert"
-                                            , GL_VERTEX_SHADER),
-                            new ShaderProgram.ShaderModuleData
-                                    ("resources/shaders/scene.frag"
-                                            , GL_FRAGMENT_SHADER)
-                    ),
-                    new ArrayList<>(
-                            List.of(
-                                    new Vector3f(0.0f,0.0f,0.0f),
-                                    new Vector3f(0.5f,0.0f,0.0f),
-                                    new Vector3f(0.0f,0.5f,0.0f),
-                                    new Vector3f(0.5f,0.5f,0.0f)
-                            )
-                    ),
-                    new Vector4f(0.0f,1.0f,1.0f,1.0f),
-                    Arrays.asList(0,1,2,1,2,3)
-
-            ));
-
         objectsCircle = new Circle(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -132,7 +84,9 @@ public class Main {
                 ),new Vector4f(105/225f,105/225f,105/225f,1.0f)
         );
 
-        objectsCircle.createTriangle(0.0f,0.0f);
+        objectsCircle.createStar(0.0f,0.0f);
+
+
     }
     public void loop(){
         while(window.isOpen()){
@@ -140,17 +94,18 @@ public class Main {
             glClearColor(0.0f,0.0f,0.0f,0.0f);
             GL.createCapabilities();
 
+            objectsCircle.drawStar();
+
+
 
             //code
-            for(Object2d object: objects){
-                object.drawWithVerticesColor();
-            }
-
-            for (Object2d object: objectsRectangle){
-                object.draw();
-            }
-
-            objectsCircle.draw();
+//            for(Object2d object: objects){
+//                object.drawWithVerticesColor();
+//            }
+//
+//            for (Object2d object: objectsRectangle){
+//                object.draw();
+//            }
 
 
             // Restore state
@@ -172,7 +127,8 @@ public class Main {
         glfwTerminate();
         glfwSetErrorCallback(null).free();
     }
+
     public static void main(String[] args) {
-        new Main().run();
+        new Bintang().run();
     }
 }
