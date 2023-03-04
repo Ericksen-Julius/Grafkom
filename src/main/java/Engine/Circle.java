@@ -12,12 +12,23 @@ public class Circle extends Object2d{
 
     float r;
 
+    float xr;
+    float yr;
+
+
 
 
     public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color, float r){
         super(shaderModuleDataList,color);
         this.r = r;
         this.vertices = new ArrayList<>();
+    }
+    public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color,float xr,float yr, ArrayList<CekKotak>kotak,Lines lines){
+        super(shaderModuleDataList,color);
+        this.vertices = new ArrayList<>();
+        this.yr = yr;
+        this.xr = xr;
+        createRectangle2(kotak,lines);
     }
     public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color){
         super(shaderModuleDataList,color);
@@ -57,12 +68,57 @@ public class Circle extends Object2d{
         double x,y;
         for(double i = 45;i<360;i+=90){
             double blah = Math.toRadians(i);
-            x = .3f * Math.cos(blah) + xR;
-            y = .3f * Math.sin(blah) + yR;
+            x = .1f * Math.cos(blah) + xR;
+            y = .1f * Math.sin(blah) + yR;
             this.vertices.add(new Vector3f((float)x,(float)y,0.0f));
         }
         setupVAOVBO();
     }
+    public void createRectangle2(ArrayList<CekKotak>kotak,Lines lines){
+        double x,y;
+        int test = 1;
+        for(CekKotak object : kotak){
+//            if (this.xr + .1f <= object.xr + object.r && this.xr + .1f >= object.xr - object.r && this.xr + .1f <= object.yr + object.r && this.xr + .1f >= object.yr - object.r) {
+//                System.out.println("error1");
+//                return;
+//            }
+//            if (this.xr - .1f <= object.xr + object.r && this.xr - .1f >= object.xr - object.r && this.xr - .1f <= object.yr + object.r && this.xr - .1f >= object.yr - object.r) {
+//                System.out.println("error2");
+//                return;
+//            }
+//            if (this.yr + .1f <= object.xr + object.r && this.yr + .1f >= object.xr - object.r && this.yr + .1f <= object.yr + object.r && this.yr + .1f >= object.yr - object.r) {
+//                System.out.println("error3");
+//                return;
+//            }
+//            if (this.yr - .1f <= object.xr + object.r && this.yr - .1f >= object.xr - object.r && this.yr - .1f <= object.yr + object.r && this.yr - .1f >= object.yr - object.r) {
+//                System.out.println("error4");
+//                return;
+//            }
+            if((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) && ((this.yr + .1f <= object.yr + object.r && this.yr +.1f >= object.yr - object.r) || (this.yr - .1f <= object.yr + object.r && this.yr  - .1f >= object.yr - object.r))){
+                return;
+            }
+            if((this.xr - .1f <= object.xr + object.r && this.xr - .1f >= object.xr - object.r) && ((this.yr + .1f <= object.yr + object.r && this.yr +.1f >= object.yr - object.r) || (this.yr - .1f <= object.yr + object.r && this.yr  -.1f >= object.yr - object.r))){
+                return;
+            }
+            if((this.yr + .1f <= object.yr + object.r && this.yr + .1f >= object.yr - object.r) && ((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) || (this.xr - .1f <= object.xr + object.r && this.xr  -.1f >= object.xr - object.r))){
+                return;
+            }
+            if((this.yr - .1f <= object.yr + object.r && this.yr - .1f >= object.yr - object.r) && ((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) || (this.xr - .1f <= object.xr + object.r && this.xr  -.1f >= object.xr - object.r))){
+                return;
+            }
+        }
+
+        for(double i = 45;i<360;i+=90){
+            double blah = Math.toRadians(i);
+            x = .1f * Math.cos(blah) + xr;
+            y = .1f * Math.sin(blah) + yr;
+            this.vertices.add(new Vector3f((float)x,(float)y,0.0f));
+        }
+        kotak.add(new CekKotak(this.xr,this.yr,.1f));
+        lines.createLine(this.xr,this.yr);
+        setupVAOVBO();
+    }
+
     public void createStar(float xR, float yR){
         double x,y,t,d;
         for(double i = 0;i<360;i+=72){

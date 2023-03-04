@@ -80,9 +80,8 @@ public class Object2d extends ShaderProgram{
                 Utils.listoFloat(verticesColor),
                 GL_STATIC_DRAW);
 
-
-
     }
+
 
     public void drawSetup(){
         bind();
@@ -122,6 +121,27 @@ public class Object2d extends ShaderProgram{
         //GL_POINT
         glDrawArrays(GL_TRIANGLES,0,
                 vertices.size());
+    }
+    public void drawLine(){
+        drawSetup();
+        // Draw the vertices
+        // Optional
+        glLineWidth(1);//Ketebalan garis
+        glPointSize(0);//Besar kecil vertex
+        //wajib
+        //GL_LINES
+        //GL_LINE_STRIP
+        //GL_LINE_LOOP
+        //GL_TRIANGLES
+        //GL_TRIANGLE_FAN
+        //GL_POINT
+        glDrawArrays(GL_LINE_STRIP,0,
+                vertices.size());
+    }
+
+    public void addVertices(Vector3f newVector){
+        vertices.add(newVector);
+        setupVAOVBO();
     }
     public void drawWithVerticesColor(){
         drawSetupWithVerticesColor();
