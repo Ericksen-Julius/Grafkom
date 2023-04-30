@@ -12,8 +12,8 @@ public class Circle extends Object2d{
 
     float r;
 
-    float xr;
-    float yr;
+    public float xr;
+    public float yr;
 
 
 
@@ -23,12 +23,19 @@ public class Circle extends Object2d{
         this.r = r;
         this.vertices = new ArrayList<>();
     }
-    public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color,float xr,float yr, ArrayList<CekKotak>kotak,Lines lines){
+    public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color,float xr,float yr){
         super(shaderModuleDataList,color);
         this.vertices = new ArrayList<>();
         this.yr = yr;
         this.xr = xr;
-        createRectangle2(kotak,lines);
+//        createRectangle(this.xr,this.yr);
+    }
+    public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color,float xr,float yr,float r){
+        super(shaderModuleDataList,color);
+        this.r = r;
+        this.vertices = new ArrayList<>();
+        this.yr = yr;
+        this.xr = xr;
     }
     public Circle (List<ShaderModuleData> shaderModuleDataList, Vector4f color){
         super(shaderModuleDataList,color);
@@ -65,6 +72,7 @@ public class Circle extends Object2d{
         setupVAOVBO();
     }
     public void createRectangle(float xR, float yR){
+        this.vertices.clear();
         double x,y;
         for(double i = 45;i<360;i+=90){
             double blah = Math.toRadians(i);
@@ -74,6 +82,72 @@ public class Circle extends Object2d{
         }
         setupVAOVBO();
     }
+    public void createRoundedRectangle(float xR, float yR, float radius) {
+        this.vertices.clear();
+        double x,y;
+        float halfWidth = 0.1f - radius;
+        float halfHeight = 0.1f - radius;
+        for(double i = 45;i<360;i+=90){
+            double angle = Math.toRadians(i);
+            float xDir = (float)Math.cos(angle);
+            float yDir = (float)Math.sin(angle);
+            float xCenter = xR + xDir * halfWidth;
+            float yCenter = yR + yDir * halfHeight;
+            for (double j = i; j < i + 90; j += 90.0 / 1.5) {
+                double cornerAngle = Math.toRadians(j);
+                x = xCenter + radius * (float)Math.cos(cornerAngle);
+                y = yCenter + radius * (float)Math.sin(cornerAngle);
+                this.vertices.add(new Vector3f((float)x,(float)y,0.0f));
+            }
+        }
+        setupVAOVBO();
+    }
+
+    public void change(float xR, float yR){
+        this.xr = xR;
+        this.yr = yR;
+        createRectangle(this.xr,this.yr);
+    }
+
+    public void curve(float[] controlPoints) {
+        int n = 20; // jumlah titik pada kurva
+        ArrayList<Vector3f> vertices = new ArrayList<>();
+
+        int numPoints = controlPoints.length / 2;
+
+        if (numPoints < 3) {
+            // jika jumlah titik kontrol kurang dari 3, maka tidak dapat dibuat kurva
+            System.out.println("Jumlah titik kontrol minimal 3");
+            return;
+        }
+
+        // loop through each pair of control points
+        for (int i = 0; i < numPoints - 2; i++) {
+            int index = i * 2;
+            float x0 = controlPoints[index];
+            float y0 = controlPoints[index + 1];
+            float x1 = controlPoints[index + 2];
+            float y1 = controlPoints[index + 3];
+            float x2 = controlPoints[index + 4];
+            float y2 = controlPoints[index + 5];
+
+            for (int j = 0; j <= n; j++) {
+                float t = (float) j / (float) n;
+                float x = (1 - t) * (1 - t) * x0 + 2 * (1 - t) * t * x1 + t * t * x2;
+                float y = (1 - t) * (1 - t) * y0 + 2 * (1 - t) * t * y1 + t * t * y2;
+                vertices.add(new Vector3f(x, y, 0));
+            }
+        }
+
+        this.vertices = vertices;
+        setupVAOVBO();
+    }
+
+
+
+
+
+
     public void createRectangle2(ArrayList<CekKotak>kotak,Lines lines){
         double x,y;
         int test = 1;
@@ -94,18 +168,6 @@ public class Circle extends Object2d{
 //                System.out.println("error4");
 //                return;
 //            }
-            if((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) && ((this.yr + .1f <= object.yr + object.r && this.yr +.1f >= object.yr - object.r) || (this.yr - .1f <= object.yr + object.r && this.yr  - .1f >= object.yr - object.r))){
-                return;
-            }
-            if((this.xr - .1f <= object.xr + object.r && this.xr - .1f >= object.xr - object.r) && ((this.yr + .1f <= object.yr + object.r && this.yr +.1f >= object.yr - object.r) || (this.yr - .1f <= object.yr + object.r && this.yr  -.1f >= object.yr - object.r))){
-                return;
-            }
-            if((this.yr + .1f <= object.yr + object.r && this.yr + .1f >= object.yr - object.r) && ((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) || (this.xr - .1f <= object.xr + object.r && this.xr  -.1f >= object.xr - object.r))){
-                return;
-            }
-            if((this.yr - .1f <= object.yr + object.r && this.yr - .1f >= object.yr - object.r) && ((this.xr + .1f <= object.xr + object.r && this.xr +.1f >= object.xr - object.r) || (this.xr - .1f <= object.xr + object.r && this.xr  -.1f >= object.xr - object.r))){
-                return;
-            }
         }
 
         for(double i = 45;i<360;i+=90){
@@ -142,7 +204,7 @@ public class Circle extends Object2d{
         //GL_TRIANGLES
         //GL_TRIANGLE_FAN
         //GL_POINT
-        glDrawArrays(GL_TRIANGLE_FAN,0,
+        glDrawArrays(GL_POLYGON,0,
                 vertices.size());
     }
     public void drawStar(){
@@ -158,7 +220,7 @@ public class Circle extends Object2d{
         //GL_TRIANGLES
         //GL_TRIANGLE_FAN
         //GL_POINT
-        glDrawArrays(GL_LINE_LOOP,0,
+        glDrawArrays(GL_LINE_STRIP,0,
                 vertices.size());
     }
 }

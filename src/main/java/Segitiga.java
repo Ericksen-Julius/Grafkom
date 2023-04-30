@@ -76,7 +76,7 @@ public class Segitiga {
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
                         new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
+                                ("resources/shaders/scene3.vert"
                                         , GL_VERTEX_SHADER),
                         new ShaderProgram.ShaderModuleData
                                 ("resources/shaders/scene.frag"

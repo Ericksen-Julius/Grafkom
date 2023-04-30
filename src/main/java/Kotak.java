@@ -76,7 +76,7 @@ public class Kotak {
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
                         new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
+                                ("resources/shaders/scene3.vert"
                                         , GL_VERTEX_SHADER),
                         new ShaderProgram.ShaderModuleData
                                 ("resources/shaders/scene.frag"
@@ -84,7 +84,7 @@ public class Kotak {
                 ),new Vector4f(105/225f,105/225f,105/225f,1.0f)
         );
 
-        objectsCircle.createRectangle(0.0f,0.0f);
+        objectsCircle.createRoundedRectangle(0.0f,0.0f,0.02f);
 
 
     }
