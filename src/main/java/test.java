@@ -27,6 +27,14 @@ public class test {
     private Circle smoke1;
     private Circle smoke2;
     private Circle smoke3;
+    int checkRotate16 = 0;
+
+    int checkRotate17 = 0;
+    boolean arah = true;
+
+    boolean arah2 = true;
+
+    boolean arah3 = true;
 
     private ArrayList<Object2d> objectsPointControl = new ArrayList<>();
     private ArrayList<Circle> objectsPointControl2 = new ArrayList<>();
@@ -56,7 +64,6 @@ public class test {
     int checkRotate4 = 0;
     public boolean arahGerak4 = true;// true = kanan, false = kiri
     int checkRotate5 = 0;
-    public boolean arah = true;// true = kanan, false = kiri
 
     int checkRotate6 = 0;
     int checkRotate7 = 0;
@@ -586,6 +593,7 @@ public class test {
         rumah.get(23).translateObject(-0.8f,-0.4f,-0.11f);
         //Yulius
 
+//Kepala
         objectsYulius.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -598,143 +606,10 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.98f,0.776f,0.4f,1.0f), 0.1f,0.1f, 0.0f, 0.0f, 0.0f, 0.1f, 1
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.115f,0.11f, 0.0f, 0.0f, 0.0f, 0.11f, 1
         ));
 
-        objectsYulius.get(0).scaleObject(2.5f,2.7f,2.0f);
-        objectsYulius.get(0).translateObject(0.0f, 0.18f, -0.007f);
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.867f,0.502f,0.498f,1.0f), 0.1f,0.1f, 0.0f, 0.0f, 0.0f, 0.1f, 1
-        ));
-
-        objectsYulius.get(1).scaleObject(2.5f,0.5f,2.0f);
-        objectsYulius.get(1).translateObject(0.0f, 0.18f, -0.007f);
-
-        //head1
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(2).scaleObject(0.115f,0.1f,0.11f);
-        objectsYulius.get(2).translateObject(0.0f, 0.6f, 0.0f);
-
-        //head2
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(3).scaleObject(0.13f,0.13f,0.11f);
-        objectsYulius.get(3).translateObject(0.0f,0.52f,0.0f);
-
-        //mataitam1
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.0f,0.0f,0.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(4).scaleObject(0.015f,0.025f,0.0f);
-        objectsYulius.get(4).translateObject(-0.05f,0.6f,0.1f);
-
-        //mataitam2
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.0f,0.0f,0.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(5).scaleObject(0.015f,0.025f,0.0f);
-        objectsYulius.get(5).translateObject(0.05f,0.6f,0.1f);
-
-        //mataputih1
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.996f,0.996f,1.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(6).scaleObject(0.005f,0.008f,0.0f);
-        objectsYulius.get(6).translateObject(0.05f,0.6f,0.1f);
-
-        //mataputih2
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.996f,0.996f,1.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(7).scaleObject(0.005f,0.008f,0.0f);
-        objectsYulius.get(7).translateObject(-0.05f,0.6f,0.1f);
+        objectsYulius.get(0).translateObject(0.0f, 0.6f, 0.0f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -748,11 +623,10 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.0f,0.0f,0.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.135f,0.11f, 0.0f, 0.0f, 0.0f, 0.11f, 1
         ));
 
-        objectsYulius.get(8).scaleObject(0.04f,0.03f,0.0f);
-        objectsYulius.get(8).translateObject(0.0f,0.53f,0.11f);
+        objectsYulius.get(1).translateObject(0.0f, 0.515f, 0.0f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -766,11 +640,28 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.1f,0.15f, 0.0f, 0.0f, 0.0f, 0.1085f, 1
         ));
 
-        objectsYulius.get(9).scaleObject(0.036f,0.026f,0.04f);
-        objectsYulius.get(9).translateObject(0.0f,0.53f,0.11f);
+        objectsYulius.get(2).translateObject(0.0f, 0.56f, 0.0f);
+
+        //Mata Kiri
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.0f,0.0f,0.0f,1.0f), 0.015f,0.025f, 0.0f, 0.0f, 0.0f, 0.0f, 1
+        ));
+
+        objectsYulius.get(3).translateObject(-0.044f,0.6f,-0.106f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -784,11 +675,28 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.675f,0.439f,0.463f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.996f,0.996f,1.0f,1.0f), 0.005f,0.008f, 0.0f, 0.0f, 0.0f, 0.0f, 1
         ));
 
-        objectsYulius.get(10).scaleObject(0.07f,0.03f,0.0f);
-        objectsYulius.get(10).translateObject(0.0f,0.448f,0.09f);
+        objectsYulius.get(4).translateObject(-0.044f,0.6f,-0.107f);
+
+        //Mata Kanan
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.0f,0.0f,0.0f,1.0f), 0.015f,0.025f, 0.0f, 0.0f, 0.0f, 0.0f, 1
+        ));
+
+        objectsYulius.get(5).translateObject(0.044f,0.6f,-0.106f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -802,11 +710,28 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.996f,0.996f,1.0f,1.0f), 0.005f,0.008f, 0.0f, 0.0f, 0.0f, 0.0f, 1
         ));
-        objectsYulius.get(11).scaleObject(0.07f,0.03f,0.0f);
-        objectsYulius.get(11).translateObject(0.0f,0.47f,0.08f);
 
+        objectsYulius.get(6).translateObject(0.044f,0.6f,-0.107f);
+
+        //Hidung
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.0f,0.0f,0.0f,1.0f), 0.04f,0.03f, 0.0f, 0.0f, 0.0f, 0.0f, 1
+        ));
+
+        objectsYulius.get(7).translateObject(0.0f,0.54f,-0.11f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -820,10 +745,81 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.036f,0.026f, 0.0f, 0.0f, 0.005f, 0.03f, 1
         ));
 
-        objectsYulius.get(12).scaleObject(0.03f,0.04f,0.02f);
+        objectsYulius.get(8).translateObject(0.0f,0.54f,-0.111f);
+
+        //Mulut
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.675f,0.439f,0.463f,1.0f), 0.08f,0.03f, 0.0f, 0.0f, 0.0f, 0.048f, 1
+        ));
+
+        objectsYulius.get(9).translateObject(0.0f,0.458f,-0.05f);
+
+        //Telinga Kanan
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.03f,0.04f, 0.0f, 0.0f, 0.0f, 0.02f, 1
+        ));
+
+        objectsYulius.get(10).translateObject(0.125f,0.59f,0.02f);
+
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.816f,0.529f,0.412f,1.0f), 0.006f,0.01f, 0.0f, 0.0f, 0.0f, 0.0f, 1
+        ));
+
+        objectsYulius.get(11).translateObject(0.127f,0.59f,-0.02f);
+
+        //Telinga Kiri
+
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.961f,0.631f,0.475f,1.0f), 0.03f,0.04f, 0.0f, 0.0f, 0.0f, 0.02f, 1
+        ));
+
         objectsYulius.get(12).translateObject(-0.125f,0.59f,0.02f);
 
         objectsYulius.add(new Sphere(
@@ -838,12 +834,28 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.816f,0.529f,0.412f,1.0f), 0.006f,0.01f, 0.0f, 0.0f, 0.0f, 0.0f, 1
         ));
 
-        objectsYulius.get(13).scaleObject(0.03f,0.04f,0.02f);
-        objectsYulius.get(13).translateObject(0.125f,0.59f,0.02f);
+        objectsYulius.get(13).translateObject(-0.127f,0.59f,-0.02f);
 
+        //Rambut
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.0f,0.0f,0.0f,1.0f), 0.1f,0.045f, 0.0f, 0.0f, 0.0f, 0.105f, 6
+        ));
+
+        objectsYulius.get(14).translateObject(0.0f,0.69f,0.0f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -857,11 +869,28 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.816f,0.529f,0.412f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.0f,0.0f,0.0f,1.0f), -0.1f,0.045f, 0.0f, 0.0f, 0.0f, -0.105f, 6
         ));
 
-        objectsYulius.get(14).scaleObject(0.005f,0.009f,0.0f);
-        objectsYulius.get(14).translateObject(-0.125f,0.59f,0.02f);
+        objectsYulius.get(15).translateObject(0.0f,0.69f,0.0f);
+
+        //Badan
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.98f,0.776f,0.4f,1.0f), 0.27f,0.27f, 0.0f, 0.0f, 0.0f, 0.2f, 1
+        ));
+
+        objectsYulius.get(16).translateObject(0.0f, 0.18f, 0.06f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -875,11 +904,10 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.816f,0.529f,0.412f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
+                new Vector4f(0.867f,0.502f,0.498f,1.0f), 0.271f,0.09f, 0.0f, 0.0f, 0.0f, 0.21f, 6
         ));
 
-        objectsYulius.get(15).scaleObject(0.005f,0.009f,0.0f);
-        objectsYulius.get(15).translateObject(0.125f,0.59f,0.02f);
+        objectsYulius.get(17).translateObject(0.0f, 0.18f, 0.06f);
 
         objectsYulius.add(new Sphere(
                 Arrays.asList(
@@ -893,13 +921,12 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.0f,0.0f,0.0f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2
+                new Vector4f(0.867f,0.502f,0.498f,1.0f), -0.271f,0.09f, 0.0f, 0.0f, 0.0f, -0.21f, 6
         ));
-        objectsYulius.get(16).scaleObject(0.2f,0.05f,0.17f);
-        objectsYulius.get(16).translateObject(0.0f,0.675f,0.0f);
 
+        objectsYulius.get(18).translateObject(0.0f, 0.18f, 0.06f);
 
-        //celana
+        //Tangan Kanan
         objectsYulius.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -912,12 +939,13 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.545f,0.325f,0.302f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2
+                new Vector4f(0.98f,0.776f,0.4f,1.0f), 0.18f,0.065f, 0.0f, 0.0f, 0.0f, 0.05f, 1
         ));
-        objectsYulius.get(17).scaleObject(0.1f,0.21f,0.1f);
-        objectsYulius.get(17).translateObject(0.1f,-0.11f,-0.007f);
 
+        objectsYulius.get(19).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, -100f);
+        objectsYulius.get(19).translateObject(0.25f,0.33f,0.05f);
 
+        //Tangan Kiri
         objectsYulius.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -930,104 +958,13 @@ public class test {
                 ),
                 new ArrayList<>(
                 ),
-                new Vector4f(0.545f,0.325f,0.302f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2
+                new Vector4f(0.98f,0.776f,0.4f,1.0f), -0.18f,0.065f, 0.0f, 0.0f, 0.0f, 0.05f, 1
         ));
 
-        objectsYulius.get(18).scaleObject(0.1f,0.21f,0.1f);
-        objectsYulius.get(18).translateObject(-0.1f,-0.11f,-0.007f);
+        objectsYulius.get(20).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, 100f);
+        objectsYulius.get(20).translateObject(-0.25f,0.33f,0.05f);
 
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.545f,0.325f,0.302f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 2
-        ));
-
-        objectsYulius.get(19).scaleObject(0.37f,0.1f,0.26f);
-        objectsYulius.get(19).translateObject(0.0f,-0.05f,-0.007f);
-
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.259f,0.4f,0.467f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(20).scaleObject(0.06f,0.025f,0.1f);
-        objectsYulius.get(20).translateObject(-0.1f,-0.23f,0.01f);
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.259f,0.4f,0.467f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1
-        ));
-
-        objectsYulius.get(21).scaleObject(0.06f,0.025f,0.1f);
-        objectsYulius.get(21).translateObject(0.1f,-0.23f,0.01f);
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.98f,0.776f,0.4f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 3
-        ));
-
-        objectsYulius.get(22).scaleObject(0.15f,0.1f,0.1f);
-        objectsYulius.get(22).translateObject(-0.28f,0.31f,0.01f);
-
-        objectsYulius.add(new Sphere(
-                Arrays.asList(
-                        //shaderFile lokasi menyesuaikan objectnya
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.vert"
-                                        , GL_VERTEX_SHADER),
-                        new ShaderProgram.ShaderModuleData
-                                ("resources/shaders/scene.frag"
-                                        , GL_FRAGMENT_SHADER)
-                ),
-                new ArrayList<>(
-                ),
-                new Vector4f(0.98f,0.776f,0.4f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 4
-        ));
-
-        objectsYulius.get(23).scaleObject(0.15f,0.1f,0.1f);
-        objectsYulius.get(23).translateObject(0.28f,0.31f,0.01f);
-
+        //Telapak kiri
         objectsYulius.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -1043,10 +980,11 @@ public class test {
                 new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 5
         ));
 
-        objectsYulius.get(24).scaleObject(0.028f,0.01f,0.1f);
-        objectsYulius.get(24).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, 210f);
-        objectsYulius.get(24).translateObject(0.45f,0.175f,0.01f);
+        objectsYulius.get(21).scaleObject(0.0138f,0.004f,0.009f);
+        objectsYulius.get(21).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, -450f);
+        objectsYulius.get(21).translateObject(-0.47f,0.223f,0.05f);
 
+        //Telapak kanan
         objectsYulius.add(new Sphere(
                 Arrays.asList(
                         //shaderFile lokasi menyesuaikan objectnya
@@ -1062,9 +1000,118 @@ public class test {
                 new Vector4f(0.961f,0.631f,0.475f,1.0f), 1.0f,1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 5
         ));
 
-        objectsYulius.get(25).scaleObject(0.028f,0.01f,0.1f);
-        objectsYulius.get(25).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, -210f);
-        objectsYulius.get(25).translateObject(-0.45f,0.175f,0.01f);
+        objectsYulius.get(22).scaleObject(0.0138f,0.004f,0.009f);
+        objectsYulius.get(22).rotateObject((float) Math.toRadians(0.3f), 0.0f, 0.0f, 450f);
+        objectsYulius.get(22).translateObject(0.47f,0.223f,0.05f);
+
+
+        //Celana
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.545f,0.325f,0.302f,1.0f), 0.42f,0.11f, 0.0f, 0.0f, 0.0f, 0.324f, 2
+        ));
+
+        objectsYulius.get(23).translateObject(0.0f,-0.035f,0.06f);
+
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.545f,0.325f,0.302f,1.0f), -0.42f,0.11f, 0.0f, 0.0f, 0.0f, -0.324f, 2
+        ));
+
+        objectsYulius.get(24).translateObject(0.0f,-0.035f,0.06f);
+
+        //kaki kanan
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.545f,0.325f,0.302f,1.0f), 0.1f,0.21f, 0.0f, 0.0f, 0.0f, 0.1f, 2
+        ));
+        objectsYulius.get(25).translateObject(0.1f,-0.13f,0.06f);
+
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.259f,0.4f,0.467f,1.0f), 0.065f,0.025f, 0.0f, 0.0f, 0.0f, 0.089f, 1
+        ));
+
+        objectsYulius.get(26).translateObject(0.1f,-0.25f,0.04f);
+
+        //kaki kiri
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.545f,0.325f,0.302f,1.0f), 0.1f,0.21f, 0.0f, 0.0f, 0.0f, 0.1f, 2
+        ));
+        objectsYulius.get(27).translateObject(-0.1f,-0.13f,0.06f);
+
+        objectsYulius.add(new Sphere(
+                Arrays.asList(
+                        //shaderFile lokasi menyesuaikan objectnya
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.vert"
+                                        , GL_VERTEX_SHADER),
+                        new ShaderProgram.ShaderModuleData
+                                ("resources/shaders/scene.frag"
+                                        , GL_FRAGMENT_SHADER)
+                ),
+                new ArrayList<>(
+                ),
+                new Vector4f(0.259f,0.4f,0.467f,1.0f), 0.065f,0.025f, 0.0f, 0.0f, 0.0f, 0.089f, 1
+        ));
+
+        objectsYulius.get(28).translateObject(-0.1f,-0.25f,0.04f);
+
+        for (int i = 0; i < objectsYulius.size(); i++) {
+            objectsYulius.get(i).translateObject(0.0f, -0.5f, 0.0f);
+        }
+    
         //Christoper
 //muka
         objectsCeer.add(new Ceer(
@@ -2627,7 +2674,7 @@ public class test {
             object.translateObject(0f,.3f,0.0f);
         }
         for (Object object: objectsYulius){
-            object.translateObject(1f,-.5f,0.0f);
+            object.translateObject(1f,0f,0.0f);
         }
         for (Object2d object: background){
             object.scaleObject(2f,2f,0.0f);
@@ -3762,40 +3809,64 @@ public class test {
 //            objectsSphere.get(12).translateObject(temp.x*1,temp.y*1,temp.z*1);
 
     }
-    public void inputYul(ArrayList<Sphere>objectsSphere,ArrayList<Circle2> objectsCircle){
+    public void inputYul(ArrayList<Sphere>objectsYulius,ArrayList<Circle2> objectsCircle){
+        if(window.isKeyPressed(GLFW_KEY_R)) {
+            for (int i = 0; i < objectsYulius.size(); i++) {
+                objectsYulius.get(i).rotateObject((float) Math.toRadians(0.8f), 0.0f, 0.8f,0.0f);
+            }
+        }
+
+        if(window.isKeyPressed(GLFW_KEY_Q)) {
+            for (int i = 0; i < objectsYulius.size(); i++) {
+                objectsYulius.get(i).rotateObject((float) Math.toRadians(0.8f), 0.0f, -0.8f,0.0f);
+            }
+        }
+
+        if(window.isKeyPressed((GLFW_KEY_E))) {
+            for (int i = 0; i < objectsYulius.size(); i++) {
+                objectsYulius.get(i).rotateObject((float) Math.toRadians(0.8f), 0.8f, 0.0f,0.0f);
+            }
+        }
+
+        if(window.isKeyPressed((GLFW_KEY_Z))) {
+            for (int i = 0; i < objectsYulius.size(); i++) {
+                objectsYulius.get(i).rotateObject((float) Math.toRadians(0.8f), 0.0f, 0.0f,0.8f);
+            }
+        }
+
         if(window.isKeyPressed(GLFW_KEY_A)) {
-            Vector3f center = objectsSphere.get(19).updateCenterPoint();
+            Vector3f center = objectsYulius.get(23).updateCenterPoint();
             if(checkRotate5 < 60 && arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
                     }
-                    else if (i == 18 || i == 20) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                    else if (i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,0.0005f,0.0f);
                     }
 
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
 
                 checkRotate5++;
             }
             if(checkRotate5 > 0 && !arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
-                    else if (i == 18 || i == 20) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                    else if (i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,-0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,-0.0005f,0.0f);
                     }
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
                 checkRotate5--;
             }
@@ -3808,7 +3879,7 @@ public class test {
                 arah = true;
             }
 
-            for (Sphere objects: objectsSphere){
+            for (Object objects: objectsYulius){
                 if(center.x <= -0.9){
                     break;
                 }
@@ -3823,38 +3894,38 @@ public class test {
         }
 
         if(window.isKeyPressed(GLFW_KEY_D)) {
-            Vector3f center = objectsSphere.get(19).updateCenterPoint();
+            Vector3f center = objectsYulius.get(23).updateCenterPoint();
             if(checkRotate5 < 60 && arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
                     }
-                    else if (i == 18 || i == 20) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                    else if (i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,0.0005f,0.0f);
                     }
 
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
 
                 checkRotate5++;
             }
             if(checkRotate5 > 0 && !arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
-                    else if (i == 18 || i == 20) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                    else if (i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,-0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,-0.0005f,0.0f);
                     }
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
                 checkRotate5--;
             }
@@ -3867,7 +3938,7 @@ public class test {
                 arah = true;
             }
 
-            for (Sphere objects: objectsSphere){
+            for (Object objects: objectsYulius){
                 if(center.x <= -0.9){
                     break;
                 }
@@ -3881,39 +3952,231 @@ public class test {
             }
         }
 
-        if (window.isKeyPressed(GLFW_KEY_J)) {
-            Vector3f center = objectsSphere.get(19).updateCenterPoint();
-            if(checkRotate5 < 60 && arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21 || i == 23 || i == 24) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+        if (window.isKeyPressed(GLFW_KEY_W)) {
+            Vector3f tempCenterPoint = objectsYulius.get(23).updateCenterPoint();
+            if (checkRotate17 < 100 && arah2){
+                for (int x = 25;x<=28;x++) {
+                    if(x == 25){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(26).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(26).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(26).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(26).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }if(x == 27){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(28).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(28).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(28).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(28).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
                     }
-                    else if (i == 18 || i == 20 || i == 22 || i == 25) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                }
+                checkRotate17++;
+            }
+            if (checkRotate17 > -100 && !arah2){
+                for (int x = 25;x<=28;x++) {
+                    if(x == 25){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(26).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(26).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(26).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(26).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }if(x == 27){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(28).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(28).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(28).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(28).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }
+                }
+                checkRotate17--;
+            }
+
+
+            for (Sphere object : objectsYulius){
+                object.scaleObject(1.001f, 1.001f, 1.001f);
+            }
+
+            for (Circle2 object : objectsCircle){
+                object.scaleObject(1.001f, 1.001f, 1.001f);
+            }
+            if(checkRotate17 >= 100){
+                checkRotate17 = 100;
+                arah2 = false;
+            }
+            if(checkRotate17 <= -100){
+                checkRotate17 = -100;
+                arah2 = true;
+            }
+        }
+
+
+        if (window.isKeyPressed(GLFW_KEY_S)) {
+            Vector3f tempCenterPoint = objectsYulius.get(23).updateCenterPoint();
+            if (checkRotate17 < 100 && arah2){
+                for (int x = 25;x<=28;x++) {
+                    if(x == 25){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(26).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(26).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(26).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(26).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);}
+                    if(x == 27){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(28).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(28).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(28).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(28).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }
+                }
+                checkRotate17++;
+            }
+            if (checkRotate17 > -100 && !arah2){
+                for (int x = 25;x<=28;x++) {
+                    if(x == 25){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(26).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(26).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(26).rotateObject((float) Math.toRadians(.5f), 1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(26).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }
+                    if(x == 27){
+                        Vector3f temp = objectsYulius.get(x).updateCenterPoint();
+                        Vector3f temp2 = objectsYulius.get(28).updateCenterPoint();
+                        objectsYulius.get(x).translateObject(temp.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(28).translateObject(temp2.x * -1, (tempCenterPoint.y) * -1, tempCenterPoint.z * -1);
+                        objectsYulius.get(x).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(28).rotateObject((float) Math.toRadians(.5f), -1.0f, 0.0f, 0.0f);
+                        objectsYulius.get(x).translateObject(temp.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                        objectsYulius.get(28).translateObject(temp2.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
+                    }
+                }
+                checkRotate17--;
+            }
+
+
+            for (Sphere object : objectsYulius){
+                object.scaleObject(0.999f, 0.999f, 0.999f);
+            }
+
+            for (Circle2 object : objectsCircle){
+                object.scaleObject(0.999f, 0.999f, 0.999f);
+            }
+            if(checkRotate17 >= 100){
+                checkRotate17 = 100;
+                arah2 = false;
+            }
+            if(checkRotate17 <= -100){
+                checkRotate17 = -100;
+                arah2 = true;
+            }
+        }
+
+        if(window.isKeyPressed(GLFW_KEY_C)) {
+            Vector3f center = objectsYulius.get(16).updateCenterPoint();
+            if(checkRotate16 < 120 && arah) {
+                for(int i = 19; i <= 20; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 19) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), 1.0f, 1.0f, 0.0f);
+                        objectsYulius.get(22).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                        objectsYulius.get(22).rotateObject((float)Math.toRadians(0.8f), 1.0f, 1.0f, 0.0f);
+                        objectsYulius.get(22).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    }
+                    if (i == 20) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), -1.0f, 1.0f, 0.0f);
+                        objectsYulius.get(21).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                        objectsYulius.get(21).rotateObject((float)Math.toRadians(0.8f), 1.0f, -1.0f, 0.0f);
+                        objectsYulius.get(21).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    }
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                }
+
+                checkRotate16++;
+            }
+            if(checkRotate16 > 0 && !arah) {
+                for(int i = 19; i <= 20; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 19) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), -1.0f, -1.0f, 0.0f);
+                        objectsYulius.get(22).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                        objectsYulius.get(22).rotateObject((float)Math.toRadians(0.8f), -1.0f, -1.0f, 0.0f);
+                        objectsYulius.get(22).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    }
+                    if (i == 20) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), 1.0f, -1.0f, 0.0f);
+                        objectsYulius.get(21).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                        objectsYulius.get(21).rotateObject((float)Math.toRadians(0.8f), -1.0f, 1.0f, 0.0f);
+                        objectsYulius.get(21).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    }
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                }
+                checkRotate16--;
+            }
+            if(checkRotate16 >= 120) {
+                checkRotate16 = 120;
+                arah = false;
+            }
+            if(checkRotate16 <= 0) {
+                checkRotate16 = 0;
+                arah = true;
+            }
+
+        }
+
+        if (window.isKeyPressed(GLFW_KEY_J)) {
+            Vector3f center = objectsYulius.get(23).updateCenterPoint();
+            if(checkRotate5 < 60 && arah) {
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 19 || i == 22 || i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                    }
+                    else if (i == 20 || i == 21 || i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,0.0005f,0.0f);
                     }
 
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
 
                 checkRotate5++;
             }
             if(checkRotate5 > 0 && !arah) {
-                for(int i = 0; i <= 25; i++) {
-                    objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    if (i == 17 || i == 21 || i == 23 || i == 24) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
+                for(int i = 0; i <= 28; i++) {
+                    objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    if (i == 19 || i == 22 || i == 25 || i == 26) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, -1.0f);
                     }
-                    else if (i == 18 || i == 20 || i == 22 || i == 25) {
-                        objectsSphere.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
+                    else if (i == 20 || i == 21 || i == 27 || i == 28) {
+                        objectsYulius.get(i).rotateObject((float)Math.toRadians(0.2f), 0.0f, 0.0f, 1.0f);
                     }
                     else {
-                        objectsSphere.get(i).translateObject(0.0f,-0.0005f,0.0f);
+                        objectsYulius.get(i).translateObject(0.0f,-0.0005f,0.0f);
                     }
-                    objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                    objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
                 checkRotate5--;
             }
@@ -3928,11 +4191,11 @@ public class test {
 
         }
 
-        if(window.isKeyPressed(GLFW_KEY_R)) {
+        if(window.isKeyPressed(GLFW_KEY_L)) {
             objectsCircle.add(new Circle2(
                     Arrays.asList(
                             new ShaderProgram.ShaderModuleData
-                                    ("resources/shaders/scene3.vert"
+                                    ("resources/shaders/scene.vert"
                                             , GL_VERTEX_SHADER),
                             new ShaderProgram.ShaderModuleData
                                     ("resources/shaders/scene.frag"
@@ -3945,136 +4208,41 @@ public class test {
                     0.3f, 0.3f, 0.0f, -0.7f
             ));
 
-            Vector3f kanan = objectsSphere.get(24).updateCenterPoint();
-            Vector3f kiri = objectsSphere.get(25).updateCenterPoint();
-            Vector3f celana = objectsSphere.get(19).updateCenterPoint();
+            Vector3f kanan = objectsYulius.get(22).updateCenterPoint();
+            Vector3f kiri = objectsYulius.get(21).updateCenterPoint();
+            Vector3f celana = objectsYulius.get(23).updateCenterPoint();
             float[] titik = new float[]{kiri.x,kiri.y,celana.x,celana.y - 0.8f,kanan.x,kanan.y};
             objectsCircle.get(0).curve(titik);
 
-            for(Circle2 object: objectsCircle) {
-                Vector3f center = objectsSphere.get(0).updateCenterPoint();
-                object.translateObject(center.x * -1, (center.y+0.16f) * -1, center.z * -1);
-                object.rotateObject((float)Math.toRadians(0.8f), -1.0f, 0.0f, 0.0f);
-                object.translateObject(center.x * 1, (center.y+0.16f)  * 1, center.z * 1);
+            for(Object object: objectsCircle) {
+                Vector3f center = objectsYulius.get(16).updateCenterPoint();
+                object.translateObject(center.x * -1, (center.y+0.16f) * -1, (center.z-0.07f) * -1);
+                object.rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
+                object.translateObject(center.x * 1, (center.y+0.16f)  * 1, (center.z-0.07f) * 1);
             }
 
-            for(int i = 22; i <= 23; i++) {
-                Vector3f center = objectsSphere.get(i).updateCenterPoint();
-                objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                if (i == 23) {
-                    objectsSphere.get(i).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(24).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    objectsSphere.get(24).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(24).translateObject(center.x * 1, center.y * 1, center.z * 1);
+            for(int i = 19; i <= 20; i++) {
+                Vector3f center = objectsYulius.get(i).updateCenterPoint();
+                objectsYulius.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                if (i == 19) {
+                    objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
+                    objectsYulius.get(22).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    objectsYulius.get(22).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
+                    objectsYulius.get(22).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
-                else {
-                    objectsSphere.get(i).rotateObject((float)Math.toRadians(0.8f), -1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(25).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    objectsSphere.get(25).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(25).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                if (i==20) {
+                    objectsYulius.get(i).rotateObject((float)Math.toRadians(0.8f), -1.0f, 0.0f, 0.0f);
+                    objectsYulius.get(21).translateObject(center.x * -1, center.y * -1, center.z * -1);
+                    objectsYulius.get(21).rotateObject((float)Math.toRadians(0.8f), 1.0f, 0.0f, 0.0f);
+                    objectsYulius.get(21).translateObject(center.x * 1, center.y * 1, center.z * 1);
                 }
-                objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
+                objectsYulius.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
             }
         }
 
         if(window.isKeyPressed(GLFW_KEY_P)) {
             if(objectsCircle.size() > 1) {
                 objectsCircle.remove(0);
-            }
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_W)) {
-            for (int x = 17;x<=21;x++) {
-                Vector3f tempCenterPoint = objectsSphere.get(19).updateCenterPoint();
-                if(x == 18 || x == 21) {
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * -1, tempCenterPoint.y * -1, tempCenterPoint.z * -1);
-                    objectsSphere.get(x).rotateObject((float) Math.toRadians(5f), -1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
-                }
-                if (x == 17 || x == 20) {
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * -1, tempCenterPoint.y * -1, tempCenterPoint.z * -1);
-                    objectsSphere.get(x).rotateObject((float) Math.toRadians(5f), 1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
-                }
-
-            }
-            for (Sphere object : objectsSphere){
-                object.scaleObject(1.001f, 1.001f, 1.001f);
-            }
-            for (Circle2 object : objectsCircle){
-                object.scaleObject(1.001f, 1.001f, 1.001f);
-            }
-        }
-
-        if (window.isKeyPressed(GLFW_KEY_S)) {
-            for (int x = 17;x<=21;x++) {
-                Vector3f tempCenterPoint = objectsSphere.get(19).updateCenterPoint();
-                if(x == 18 || x == 21) {
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * -1, tempCenterPoint.y * -1, tempCenterPoint.z * -1);
-                    objectsSphere.get(x).rotateObject((float) Math.toRadians(5f), -1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
-                }
-                if (x == 17 || x == 20) {
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * -1, tempCenterPoint.y * -1, tempCenterPoint.z * -1);
-                    objectsSphere.get(x).rotateObject((float) Math.toRadians(5f), 1.0f, 0.0f, 0.0f);
-                    objectsSphere.get(x).translateObject(tempCenterPoint.x * 1, tempCenterPoint.y * 1, tempCenterPoint.z * 1);
-                }
-
-            }
-            for (Sphere object : objectsSphere){
-                object.scaleObject(0.999f, 0.999f, 0.999f);
-            }
-            for (Circle2 object : objectsCircle){
-                object.scaleObject(0.999f, 0.999f, 0.999f);
-            }
-        }
-
-
-        if(window.isKeyPressed(GLFW_KEY_C)) {
-            for(int i = 22; i <= 23; i++) {
-
-                Vector3f center = objectsSphere.get(i).updateCenterPoint();
-                objectsSphere.get(i).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                if(i == 23) {
-                    objectsSphere.get(i).rotateObject((float)Math.toRadians(0.8f), 1.0f, 1.0f, 0.0f);
-                    objectsSphere.get(24).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    objectsSphere.get(24).rotateObject((float)Math.toRadians(0.8f), 1.0f, 1.0f, 0.0f);
-                    objectsSphere.get(24).translateObject(center.x * 1, center.y * 1, center.z * 1);
-                }
-                else {
-                    objectsSphere.get(i).rotateObject((float)Math.toRadians(0.8f), -1.0f, 1.0f, 0.0f);
-                    objectsSphere.get(25).translateObject(center.x * -1, center.y * -1, center.z * -1);
-                    objectsSphere.get(25).rotateObject((float)Math.toRadians(0.8f), 1.0f, -1.0f, 0.0f);
-                    objectsSphere.get(25).translateObject(center.x * 1, center.y * 1, center.z * 1);
-                }
-                objectsSphere.get(i).translateObject(center.x * 1, center.y * 1, center.z * 1);
-            }
-        }
-
-        if(window.isKeyPressed(GLFW_KEY_V)) {
-            for (Sphere sphere : objectsSphere) {
-                sphere.rotateObject((float) Math.toRadians(1.0f), 0.1f, 0.0f, 0.0f);
-            }
-            for (Circle2 object : objectsCircle) {
-                object.rotateObject((float) Math.toRadians(1.0f), 0.1f, 0.0f, 0.0f);
-            }
-        }
-
-        if(window.isKeyPressed(GLFW_KEY_Y)) {
-            for (int i = 0; i < objectsSphere.size(); i++) {
-                objectsSphere.get(i).rotateObject((float) Math.toRadians(1.0f), 0.0f, 0.1f,0.0f);
-            }
-            for (Circle2 object : objectsCircle) {
-                object.rotateObject((float) Math.toRadians(1.0f), 0.0f, 0.1f, 0.0f);
-            }
-        }
-
-        if(window.isKeyPressed(GLFW_KEY_U)) {
-            for (int i = 0; i < objectsSphere.size(); i++) {
-                objectsSphere.get(i).rotateObject((float) Math.toRadians(1.0f), 0.0f, 0.0f,0.1f);
-            }
-            for (Circle2 object : objectsCircle) {
-                object.rotateObject((float) Math.toRadians(1.0f), 0.0f, 0.0f, 0.1f);
             }
         }
     }
